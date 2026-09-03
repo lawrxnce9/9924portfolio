@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A creative portfolio for Kora House and its founder.">
+<title>Portfolio | Kora House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page-noise" aria-hidden="true"></div>
+<header class="site-header">
+    <a class="site-logo" href="#home" aria-label="Kora House home">
+        <img src="9924.img/logo.PNG" alt="Kora House logo">
+    </a>
+    <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<main>
+<section class="hero" id="home">
+    <div class="hero-copy reveal">
+        
+        <h1>WELCOME<br><em>TO MY</em><br>PORTFOLIO</h1>
+        
+        
+    </div>
+    <div class="hero-visual reveal delay-1" style="justify-self:center;position:relative;left:-20px;"><img src="9924.img/mainpic.png" alt="Portrait of the Kora House owner and creative director" style="object-fit:contain;object-position:center bottom;filter:none;border-radius:20px;"></div>
+</section>
+
+<section class="intro section-wrap" id="about">
+    
+    <div class="intro-body reveal"><h2>ABOUT</h2><div><p>
+I’m Nana Yaw Yamoah-Tuffour, a creative, entrepreneur and Criminal Justice student with a passion for storytelling, creativity, leadership and impact.
+My journey has taken me across different spaces from publishing and media production to fashion, branding, community initiatives and the arts. Rather than limiting myself to one path, I’m interested in how different ideas, experiences, and disciplines can come together to create something meaningful.
+I believe in constantly learning, evolving and exploring new possibilities.</p>
+</section>
+<section class="contact" id="contact">
+    <div class="section-wrap contact-inner">
+        
+        <h2>Get<br><em>in touch</em></h2>
+        <p>Branding project, custom order, collaboration, or just a good idea?</p>
+        <a class="contact-email" href="mailto:yamoahtuffournanayaw@gmail.com">yamoahtuffournanayaw@gmail.com <span>↗</span></a>
+        <div class="contact-socials" aria-label="Social media links">
+            <a href="https://www.instagram.com/nana_tuffourh?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <span class="social-icon"><img src="9924.img/ig.PNG" alt="Instagram"></span>
+            </a>
+            <a href="https://www.linkedin.com/in/nanayawyamoahtuffour?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <span class="social-icon"><img src="9924.img/in.PNG" alt="LinkedIn"></span>
+            </a>
+            <a href="https://x.com/nanatuffour337?s=11" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <span class="social-icon"><img src="9924.img/x.PNG" alt="X"></span>
+            </a>
+            <a href="https://www.facebook.com/share/1Bp9s2R8KX/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <span class="social-icon"><img src="9924.img/fb.PNG" alt="Facebook"></span>
+            </a>
+        </div>
+        <form class="contact-form" id="contactForm">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="tel" name="phone" placeholder="Phone number">
+            <select name="projectType" required><option value="" disabled selected>What are we making?</option><option>Brand identity</option><option>Custom apparel</option><option>Merchandise</option><option>Collaboration</option><option>Other</option></select>
+            
+            <button class="button button-light" type="submit">Send inquiry <span>↗</span></button>
+            <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+    </div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#contact">Contact</a></div><a href="#contact"></a></div><small>© 2026 Ahyensode. </small></footer>
+<script src="script.js"></script>
+</body>
+</html>
