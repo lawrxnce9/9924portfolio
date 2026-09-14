@@ -45,7 +45,6 @@ document.title = `${project.title} | 9924`;
 content.innerHTML = `
     <article class="dedicated-case-study">
         <div class="dedicated-case-hero" style="background-image:url('${project.cover}')">
-            <span>${project.number}</span>
         </div>
         <div class="dedicated-case-body">
             <p class="case-study-kicker">${project.category} / ${project.year}</p>
