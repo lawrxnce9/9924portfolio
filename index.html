@@ -43,9 +43,21 @@ My journey has taken me across different spaces from publishing and media produc
 I believe in constantly learning, evolving and exploring new possibilities.</p>
 </section>
 <section class="projects section-wrap" id="projects">
-    <div class="projects-body reveal"><h2>Projects/<br><em>Works</em></h2><div><p>
-        Explore a selection of creative work spanning branding, design, content production, and cultural initiatives. Each project represents a unique blend of storytelling, strategic thinking, and artistic vision—bringing ideas to life across different mediums and disciplines.
-    </p></div></div>
+    <div class="projects-body reveal">
+        <div class="projects-intro">
+            <h2>Projects/<br><em>Works</em></h2>
+            <p>Creative direction, media, entrepreneurship, community engagement, and criminal justice.</p>
+        </div>
+        <div class="projects-list-wrap">
+            <div class="project-tabs" id="projectTabs" role="tablist" aria-label="Project categories">
+                <button class="project-tab active" type="button" data-category="all" role="tab" aria-selected="true">All</button>
+                <button class="project-tab" type="button" data-category="creative" role="tab" aria-selected="false">Creative &amp; Fashion</button>
+                <button class="project-tab" type="button" data-category="media" role="tab" aria-selected="false">Media &amp; Production</button>
+                <button class="project-tab" type="button" data-category="justice" role="tab" aria-selected="false">Justice &amp; Community</button>
+            </div>
+            <div class="project-list" id="projectList"></div>
+        </div>
+    </div>
 </section>
 <section class="contact" id="contact">
     <div class="section-wrap contact-inner">
@@ -79,6 +91,12 @@ I believe in constantly learning, evolving and exploring new possibilities.</p>
     </div>
 </section>
 </main>
+<div class="project-lightbox" id="projectLightbox" aria-hidden="true">
+    <button class="lightbox-nav prev" id="projectPrevious" type="button" aria-label="Previous project image">&#8249;</button>
+    <div class="lightbox-inner" id="projectLightboxInner"></div>
+    <button class="lightbox-nav next" id="projectNext" type="button" aria-label="Next project image">&#8250;</button>
+    <button class="lightbox-close" id="projectClose" type="button">Close &#10005;</button>
+</div>
 <footer class="site-footer"><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div><a href="#contact"></a></div><small>© 2026 Ahyensode. </small></footer>
 <script src="script.js"></script>
 </body>
