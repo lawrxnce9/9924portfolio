@@ -6,7 +6,7 @@ const projects = [
         challenge: 'Build a complete world around the first 9924 Baker Boy release and make the product feel ready for a wider audience.',
         process: 'Directed the NYC photoshoot, shaped the campaign language, developed packaging and e-commerce touchpoints, and coordinated influencer seeding.',
         outcome: 'The first release sold out.',
-        cover: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1600&q=85'
+        cover: '9924.img/9924jersey.JPG'
     },
     {
         number: '02', title: 'CUPS & COPS', category: 'Justice & Community', year: '2025',
@@ -24,7 +24,7 @@ const projects = [
         challenge: 'Shape event concepts and communicate them in a way that makes students want to participate.',
         process: 'Helped develop programming, event communication, social content, and the visual moments students encountered before and during each event.',
         outcome: 'A connected set of culturally focused events with a clear student-facing identity.',
-        cover: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=85'
+        cover: '9924.img/fakewedding.jpg'
     },
     {
         number: '04', title: 'Media & Sports Production', category: 'Media & Production', year: '2024-2026',
@@ -33,7 +33,7 @@ const projects = [
         challenge: 'Support live productions where timing, communication, and technical precision have to work together in real time.',
         process: 'Built experience through the Grambling State University TV Center and production work connected with live sports and broadcast partners.',
         outcome: 'A growing foundation in broadcasting, live production, and sports media.',
-        cover: 'https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?auto=format&fit=crop&w=1600&q=85'
+        cover: '9924.img/media&sports.png'
     }
 ];
 
@@ -55,7 +55,6 @@ content.innerHTML = `
                 <section><p class="case-label">My Role</p><p>${project.role}</p></section>
                 <section><p class="case-label">Process</p><p>${project.process}</p></section>
             </div>
-            <div class="visuals-placeholder"><span>Visuals</span><p>Add campaign photography, product details, behind-the-scenes material, event visuals, or production images here.</p></div>
             <section class="case-section case-outcome"><p class="case-label">Outcome / Impact</p><p>${project.outcome}</p></section>
         </div>
     </article>

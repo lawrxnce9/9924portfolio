@@ -18,7 +18,7 @@ const projects = [
         role: 'Creative direction, campaign development, brand presentation, launch strategy',
         challenge: 'Build a complete world around the first 9924 Baker Boy release and make the product feel ready for a wider audience.',
         process: 'Directed the NYC photoshoot, shaped the campaign language, developed packaging and e-commerce touchpoints, and coordinated influencer seeding.',
-        outcome: 'The Republic Series sold out.', cover: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85'
+        outcome: 'The Republic Series sold out.', cover: '9924.img/9924jersey.JPG'
     },
     {
         number: '02', title: 'CUPS & COPS', category: 'justice', categoryLabel: 'Justice & Community', year: '2025',
@@ -34,7 +34,7 @@ const projects = [
         role: 'Event planning, public relations, creative production',
         challenge: 'Shape event concepts and communicate them in a way that makes students want to participate.',
         process: 'Helped develop programming, event communication, social content, and the visual moments students encountered before and during each event.',
-        outcome: 'A connected set of culturally focused events with a clear student-facing identity.', cover: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85'
+        outcome: 'A connected set of culturally focused events with a clear student-facing identity.', cover: '9924.img/fakewedding.jpg'
     },
     {
         number: '04', title: 'Media & Sports Production', category: 'media', categoryLabel: 'Media & Production', year: '2024-2026',
@@ -42,7 +42,7 @@ const projects = [
         role: 'Technical production and event-day roles',
         challenge: 'Support live productions where timing, communication, and technical precision have to work together in real time.',
         process: 'Built experience through the Grambling State University TV Center and production work connected with ESPN, CBS Sports, Bounce Multimedia, and Program Productions.',
-        outcome: 'A growing foundation in broadcasting, live production, and sports media.', cover: 'https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?auto=format&fit=crop&w=1200&q=85'
+        outcome: 'A growing foundation in broadcasting, live production, and sports media.', cover: '9924.img/media&sports.png'
     },
     { number: '', title: '9924 Baker Boy - Next Release', category: 'creative', categoryLabel: 'Creative & Fashion', year: '', blurb: "The next chapter of 9924 Baker Boy, moving beyond the first jersey release into coordinated pieces and more universal artistic storytelling.", role: 'Brand development and creative direction', challenge: 'Expand the product world while retaining the identity that made the first release distinct.', process: 'Developing coordinated pieces, broader storytelling, and a more universal visual language.', outcome: 'An evolving 9924 Baker Boy system.', cover: '' },
     { number: '', title: 'Ahyensode Creative Agency', category: 'creative', categoryLabel: 'Creative & Fashion', year: '', blurb: 'The creative platform behind branding, content, events, and visual projects, including the development of 9924 Baker Boy.', role: 'Creative direction and entrepreneurship', challenge: 'Build a flexible platform for ideas that cross branding, content, events, and culture.', process: 'Connecting projects, collaborators, and visual work under one creative practice.', outcome: 'A growing platform for independent creative work.', cover: '' },
@@ -61,7 +61,9 @@ let activeProjectIndex = 0;
 
 function renderProjects(category = 'all') {
     const visibleProjects = projects.map((project, index) => ({ project, index })).filter(({ project }) => category === 'all' || project.category === category);
-    projectList.innerHTML = visibleProjects.map(({ project, index }, position) => `${position === 4 ? '<h3 class="additional-projects-heading">Additional projects</h3>' : ''}
+    const flagshipProjects = visibleProjects.filter(({ project }) => project.number);
+    const experienceProjects = visibleProjects.filter(({ project }) => !project.number);
+    const flagshipMarkup = flagshipProjects.map(({ project, index }) => `
         <article class="project-card ${project.number ? 'flagship' : 'additional'}">
             <${project.number ? 'a' : 'div'} class="project-card-link" ${project.number ? `href="case-study.html?project=${index}"` : ''}>
                 <div class="project-card-cover ${project.cover ? '' : 'project-placeholder'}" ${project.cover ? `style="background-image:url('${project.cover}')"` : ''}>
@@ -72,6 +74,13 @@ function renderProjects(category = 'all') {
             </${project.number ? 'a' : 'div'}>
         </article>
     `).join('');
+    const experienceMarkup = experienceProjects.length ? `
+        <h3 class="additional-projects-heading">EXPERIENCES</h3>
+        <ul class="experience-list">
+            ${experienceProjects.map(({ project }) => `<li><strong>${project.title}</strong><span>${project.blurb}</span></li>`).join('')}
+        </ul>
+    ` : '';
+    projectList.innerHTML = flagshipMarkup + experienceMarkup;
 }
 
 function openProject(project) {
