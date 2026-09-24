@@ -34,7 +34,7 @@ const projects = [
         role: 'Event planning, public relations, creative production',
         challenge: 'Shape event concepts and communicate them in a way that makes students want to participate.',
         process: 'Helped develop programming, event communication, social content, and the visual moments students encountered before and during each event.',
-        outcome: 'A connected set of culturally focused events with a clear student-facing identity.', cover: '9924.img/fake.png'
+        outcome: 'A connected set of culturally focused events with a clear student-facing identity.', cover: '9924.img/fakewedding.jpg'
     },
     {
         number: '04', title: 'Media & Sports Production', category: 'media', categoryLabel: 'Media & Production', year: '2024-2026',
