@@ -26,7 +26,7 @@ const projects = [
         role: 'Concept development, community engagement, public safety perspective',
         challenge: 'Create a more approachable setting for students and police to connect outside formal or crisis-driven interactions.',
         process: 'Developed from experience working with a police department during a Fall 2025 internship, focusing on the student and police experience.',
-        outcome: 'A proposal for a repeatable campus engagement format with potential community impact.', cover: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85'
+        outcome: 'A proposal for a repeatable campus engagement format with potential community impact.', cover: '9924.img/cups-and-cops.png', coverPosition: 'center top'
     },
     {
         number: '03', title: 'International Week 2026', category: 'media', categoryLabel: 'Media & Production', year: '2026',
@@ -43,15 +43,13 @@ const projects = [
         challenge: 'Support live productions where timing, communication, and technical precision have to work together in real time.',
         process: 'Built experience through the Grambling State University TV Center and production work connected with ESPN, CBS Sports, Bounce Multimedia, and Program Productions.',
         outcome: 'A growing foundation in broadcasting, live production, and sports media.', cover: '9924.img/media&sports.png'
-    },
-    { number: '', title: '9924 Baker Boy - Next Release', category: 'creative', categoryLabel: 'Creative & Fashion', year: '', blurb: "The next chapter of 9924 Baker Boy, moving beyond the first jersey release into coordinated pieces and more universal artistic storytelling.", role: 'Brand development and creative direction', challenge: 'Expand the product world while retaining the identity that made the first release distinct.', process: 'Developing coordinated pieces, broader storytelling, and a more universal visual language.', outcome: 'An evolving 9924 Baker Boy system.', cover: '' },
-    { number: '', title: 'Ahyensode Creative Agency', category: 'creative', categoryLabel: 'Creative & Fashion', year: '', blurb: 'The creative platform behind branding, content, events, and visual projects, including the development of 9924 Baker Boy.', role: 'Creative direction and entrepreneurship', challenge: 'Build a flexible platform for ideas that cross branding, content, events, and culture.', process: 'Connecting projects, collaborators, and visual work under one creative practice.', outcome: 'A growing platform for independent creative work.', cover: '' },
-    { number: '', title: 'Campus Safety & Engagement Work', category: 'justice', categoryLabel: 'Justice & Community', year: '', blurb: 'Work developed from police internship experience around campus safety, student engagement, and police-community relations.', role: 'Research, engagement, and public safety perspective', challenge: 'Think about campus safety as a relationship and communication issue as well as an enforcement issue.', process: 'Building from field experience and interest in student-facing public safety work.', outcome: 'A developing body of ideas around safer, more connected campus communities.', cover: '' },
-    { number: '', title: 'Criminal Justice Research & Legal Work', category: 'justice', categoryLabel: 'Justice & Community', year: '', blurb: 'Selected criminal justice research, legal writing, and academic projects reflecting interests in law, justice, due process, and policy.', role: 'Research, legal writing, and analysis', challenge: 'Examine how systems, policy, and lived experience shape justice outcomes.', process: 'Developing research and writing across criminal justice coursework and legal interests.', outcome: 'A growing academic foundation in law, justice, due process, and policy.', cover: '' }
+    }
 ];
 
 const projectList = document.getElementById('projectList');
 const projectTabs = document.getElementById('projectTabs');
+const experienceHeading = document.getElementById('experienceHeading');
+const experienceList = document.getElementById('experienceList');
 const projectLightbox = document.getElementById('projectLightbox');
 const projectLightboxInner = document.getElementById('projectLightboxInner');
 const projectPrevious = document.getElementById('projectPrevious');
@@ -61,12 +59,10 @@ let activeProjectIndex = 0;
 
 function renderProjects(category = 'all') {
     const visibleProjects = projects.map((project, index) => ({ project, index })).filter(({ project }) => category === 'all' || project.category === category);
-    const flagshipProjects = visibleProjects.filter(({ project }) => project.number);
-    const experienceProjects = visibleProjects.filter(({ project }) => !project.number);
-    const flagshipMarkup = flagshipProjects.map(({ project, index }) => `
+    const flagshipMarkup = visibleProjects.map(({ project, index }) => `
         <article class="project-card ${project.number ? 'flagship' : 'additional'}">
             <${project.number ? 'a' : 'div'} class="project-card-link" ${project.number ? `href="case-study.html?project=${index}"` : ''}>
-                <div class="project-card-cover ${project.cover ? '' : 'project-placeholder'}" ${project.cover ? `style="background-image:url('${project.cover}')"` : ''}>
+                <div class="project-card-cover ${project.cover ? '' : 'project-placeholder'}" ${project.cover ? `style="background-image:url('${project.cover}');background-position:${project.coverPosition || 'center'}"` : ''}>
                 </div>
                 <div class="project-card-meta"><span>${project.categoryLabel}</span></div>
                 <h3>${project.title}</h3>
@@ -74,13 +70,14 @@ function renderProjects(category = 'all') {
             </${project.number ? 'a' : 'div'}>
         </article>
     `).join('');
-    const experienceMarkup = experienceProjects.length ? `
-        <h3 class="additional-projects-heading">EXPERIENCES</h3>
-        <ul class="experience-list">
-            ${experienceProjects.map(({ project }) => `<li><strong>${project.title}</strong><span>${project.blurb}</span></li>`).join('')}
-        </ul>
-    ` : '';
-    projectList.innerHTML = flagshipMarkup + experienceMarkup;
+    projectList.innerHTML = flagshipMarkup;
+    const visibleExperiences = [...experienceList.children].filter(experience => {
+        const isVisible = category === 'all' || experience.dataset.category === category;
+        experience.style.display = isVisible ? '' : 'none';
+        return isVisible;
+    });
+    experienceHeading.style.display = visibleExperiences.length ? '' : 'none';
+    experienceList.style.display = visibleExperiences.length ? '' : 'none';
 }
 
 function openProject(project) {

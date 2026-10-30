@@ -15,7 +15,7 @@ const projects = [
         challenge: 'Create a more approachable setting for students and police to connect outside formal or crisis-driven interactions.',
         process: 'Developed from experience working with a police department during a Fall 2025 internship, focusing on the student and police experience.',
         outcome: 'A proposal for a repeatable campus engagement format with potential community impact.',
-        cover: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=85'
+        cover: '9924.img/cups-and-cops.png'
     },
     {
         number: '03', title: 'International Week 2026', category: 'Media & Production', year: '2026',
